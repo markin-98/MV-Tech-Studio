@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme tokens (RGB channels for Tailwind alpha support) ───────────── */
+:root,
+.light {
+  --bg: 244 247 252; /* #f4f7fc */
+  --surface: 255 255 255; /* cards */
+  --elevated: 255 255 255;
+  --fg: 15 23 42; /* slate-900 */
+  --muted: 71 85 105; /* slate-600 */
+  --line: 15 23 42; /* used with low alpha for borders */
+  --grid: 15 23 42;
+  --glow-1: rgba(37, 99, 235, 0.1);
+  --glow-2: rgba(59, 130, 246, 0.08);
+  --glow-3: rgba(99, 102, 241, 0.06);
+  --surface-alpha: 0.7;
+}
+
+.dark {
+  --bg: 7 10 18; /* #070a12 */
+  --surface: 255 255 255; /* used at low alpha over dark */
+  --elevated: 16 22 38; /* #101626 */
+  --fg: 233 238 247;
+  --muted: 148 163 184; /* slate-400 */
+  --line: 255 255 255;
+  --grid: 148 163 184;
+  --glow-1: rgba(37, 99, 235, 0.2);
+  --glow-2: rgba(59, 130, 246, 0.12);
+  --glow-3: rgba(30, 64, 175, 0.1);
+  --surface-alpha: 0.04;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-bg text-fg antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+  background-image:
+    radial-gradient(60% 50% at 50% 0%, var(--glow-1), transparent 70%),
+    radial-gradient(45% 45% at 100% 25%, var(--glow-2), transparent 70%),
+    radial-gradient(40% 40% at 0% 60%, var(--glow-3), transparent 70%);
+  background-attachment: fixed;
+}
+
+::selection {
+  @apply bg-brand-500/30 text-fg;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid rgb(var(--bg));
+  box-shadow: 0 0 0 4px rgb(96 165 250 / 0.7);
+  border-radius: 6px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-600/50 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-500;
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-fg via-brand-500 to-brand-400 bg-clip-text text-transparent dark:from-white dark:via-brand-200 dark:to-brand-400;
+  }
+
+  /* Frosted card — theme-aware via --surface + --surface-alpha */
+  .glass {
+    background-color: rgb(var(--surface) / var(--surface-alpha));
+    @apply border backdrop-blur-md;
+    border-color: rgb(var(--line) / 0.1);
+  }
+  .light .glass {
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+  }
+
+  .section-pad {
+    @apply mx-auto max-w-6xl px-6 py-14 md:py-20;
+  }
+
+  /* Eyebrow / kicker label in mono — signature dev touch */
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-brand-500 dark:text-brand-400;
+  }
+}
+
+/* Subtle tech grid overlay */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(var(--grid) / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid) / 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+/* Note: motion is intentional and core to this site's concept. Framer-motion is
+   configured with reducedMotion="never" so scroll reveals work for everyone; we
+   deliberately do not globally suppress animation on prefers-reduced-motion. */

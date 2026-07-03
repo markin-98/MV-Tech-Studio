@@ -11,3 +11,7 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Ferramentas de dev / scripts de uso único (fora do repositório)
+.claude/
+/scripts/

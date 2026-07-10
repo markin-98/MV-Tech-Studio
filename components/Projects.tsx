@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Award } from "lucide-react";
+import { Github, ExternalLink, Award, BadgeCheck } from "lucide-react";
 import Reveal from "./Reveal";
 import { projects } from "@/lib/data";
 
@@ -23,11 +23,18 @@ export default function Projects() {
           <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-brand-600/10 blur-3xl" />
           <div className="relative grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
             <div>
-              {featured.award && (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-500 dark:text-amber-300">
-                  <Award size={13} /> {featured.award}
-                </span>
-              )}
+              <div className="flex flex-wrap items-center gap-2">
+                {featured.realClient && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-300">
+                    <BadgeCheck size={13} /> Cliente real
+                  </span>
+                )}
+                {featured.award && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-500 dark:text-amber-300">
+                    <Award size={13} /> {featured.award}
+                  </span>
+                )}
+              </div>
               <h3 className="mt-3 font-display text-2xl font-bold text-fg">
                 {featured.title}
               </h3>
@@ -75,6 +82,12 @@ export default function Projects() {
               {p.role && (
                 <p className="mt-1 font-mono text-[11px] uppercase tracking-wide text-brand-600 dark:text-brand-400/80">
                   {p.role}
+                </p>
+              )}
+
+              {p.realClient && (
+                <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-300">
+                  <BadgeCheck size={13} /> Cliente real
                 </p>
               )}
 

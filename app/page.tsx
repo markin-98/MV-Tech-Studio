@@ -26,10 +26,10 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Services />
+      <Process />
       <Education />
       <Differentials />
-      <Process />
-      <Services />
       <Contact />
       <Footer />
       <WhatsAppButton />

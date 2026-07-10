@@ -9,10 +9,10 @@ export default function Services() {
     <section id="servicos" className="section-pad">
       <Reveal>
         <p className="eyebrow">
-          O que eu faço
+          Como posso contribuir
         </p>
         <h2 className="mt-2 text-3xl font-display font-bold text-fg sm:text-4xl">
-          Serviços
+          O que eu faço
         </h2>
         <p className="mt-3 max-w-2xl text-muted">
           Como posso ajudar sua empresa ou projeto a sair do papel.

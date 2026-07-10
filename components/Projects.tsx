@@ -46,14 +46,26 @@ export default function Projects() {
               <p className="mt-4 text-sm leading-relaxed text-muted">
                 {featured.description}
               </p>
-              <a
-                href={featured.repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-500"
-              >
-                <Github size={16} /> Ver código
-              </a>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <a
+                  href={featured.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-500"
+                >
+                  <Github size={16} /> Ver código
+                </a>
+                {featured.demo && (
+                  <a
+                    href={featured.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line/15 px-4 py-2 text-sm font-medium text-fg transition-colors hover:bg-line/5"
+                  >
+                    <ExternalLink size={16} /> Ver demo
+                  </a>
+                )}
+              </div>
             </div>
             <div className="flex flex-wrap gap-2 md:justify-end md:self-start">
               {featured.tags.map((t) => (

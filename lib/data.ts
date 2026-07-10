@@ -77,6 +77,7 @@ export const projects: Project[] = [
       "Aplicativo web instalável para um estúdio de unhas. O cliente agenda o horário, paga o sinal por Pix e acompanha o programa de fidelidade; o admin gerencia a agenda, os serviços, os clientes e os relatórios. Backend em Supabase, login pelo Google e tema claro/escuro.",
     tags: ["JavaScript", "PWA", "Supabase", "Pix", "Auth"],
     repo: "https://github.com/markin-98/FiuzaNailsApp",
+    demo: "https://fiuzanails.netlify.app",
     highlight: true,
     realClient: true,
     role: "Projeto completo — do front ao back",

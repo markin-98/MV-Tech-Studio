@@ -4,6 +4,8 @@ export const profile = {
   role: "Desenvolvedor Full Stack",
   headline:
     "Front-end & Back-end · React · C# .NET · TypeScript · SQL",
+  valueProp:
+    "Construo aplicações web completas — do front-end ao deploy.",
   location: "Belo Horizonte, Minas Gerais — Brasil",
   email: "marcusv2354@gmail.com",
   phone: "+55 31 97140-4129",
@@ -65,6 +67,7 @@ export type Project = {
   highlight?: boolean;
   award?: string;
   role?: string;
+  realClient?: boolean;
 };
 
 export const projects: Project[] = [
@@ -75,7 +78,19 @@ export const projects: Project[] = [
     tags: ["JavaScript", "PWA", "Supabase", "Pix", "Auth"],
     repo: "https://github.com/markin-98/FiuzaNailsApp",
     highlight: true,
+    realClient: true,
     role: "Projeto completo — do front ao back",
+  },
+  {
+    title: "ToninhoCar — Controle de Estoque",
+    description:
+      "Aplicativo mobile de gestão de estoque para uma oficina automotiva. Permite cadastrar peças e produtos, controlar entradas e saídas, acompanhar disponibilidade em tempo real e gerenciar preços, com acessos separados para administrador e funcionário. React Native com Expo e backend em Supabase.",
+    tags: ["React Native", "Expo", "Supabase", "TypeScript", "Mobile"],
+    repo: "https://github.com/markin-98/ToninhoCar-Estoque",
+    demo: "https://toninho-car-estoque.vercel.app",
+    highlight: true,
+    realClient: true,
+    role: "Projeto interdisciplinar — front + back",
   },
   {
     title: "Projeto EZ — Dashboard Angular",
@@ -135,8 +150,8 @@ export const services = [
 ];
 
 export const stats = [
-  { value: 5, suffix: "+", label: "Projetos desenvolvidos" },
-  { value: 15, suffix: "+", label: "Tecnologias na bagagem" },
+  { value: 7, suffix: "+", label: "Projetos desenvolvidos" },
+  { value: 2, suffix: "", label: "Apps para clientes reais" },
   { value: 4, suffix: "º", label: "Período em ADS" },
   { value: 1, suffix: "", label: "Prêmio acadêmico" },
 ];

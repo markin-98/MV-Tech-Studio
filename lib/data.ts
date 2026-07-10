@@ -68,7 +68,6 @@ export type Project = {
   award?: string;
   role?: string;
   realClient?: boolean;
-  inProduction?: boolean;
   demoRequiresAuth?: boolean;
 };
 
@@ -82,7 +81,6 @@ export const projects: Project[] = [
     demo: "https://fiuzanails.netlify.app",
     highlight: true,
     realClient: true,
-    inProduction: true,
     demoRequiresAuth: true,
     role: "Projeto completo — do front ao back",
   },

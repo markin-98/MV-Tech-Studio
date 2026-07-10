@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Award, BadgeCheck, Rocket, Lock } from "lucide-react";
+import { Github, ExternalLink, Award, BadgeCheck, Lock } from "lucide-react";
 import Reveal from "./Reveal";
 import { projects } from "@/lib/data";
 
@@ -27,11 +27,6 @@ export default function Projects() {
                 {featured.realClient && (
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-300">
                     <BadgeCheck size={13} /> Cliente real
-                  </span>
-                )}
-                {featured.inProduction && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-600 dark:text-sky-300">
-                    <Rocket size={13} /> Em produção
                   </span>
                 )}
                 {featured.award && (
@@ -110,12 +105,6 @@ export default function Projects() {
               {p.realClient && (
                 <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-300">
                   <BadgeCheck size={13} /> Cliente real
-                </p>
-              )}
-
-              {p.inProduction && (
-                <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-600 dark:text-sky-300">
-                  <Rocket size={13} /> Em produção
                 </p>
               )}
 

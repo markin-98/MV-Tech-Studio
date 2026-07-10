@@ -54,6 +54,15 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-5 max-w-md text-lg text-muted"
           >
+            {profile.valueProp}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.24 }}
+            className="mt-3 font-mono text-sm text-brand-600 dark:text-brand-400/90"
+          >
             {profile.headline}
           </motion.p>
 
